@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% block style %}
+    <style>
+         @import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+
+        .navbar-static-top{
+
+            margin-bottom: 0 !important;
+        }
+        .jumbotron{
+            background-color: #FF8F5E;
+            height:400px;
+            margin-bottom:0;
+
+        }
+        .jumbotron h1{
+            color:white;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+
+        }
+        .jumbotron p{
+            color:white;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif
+        }
+    .jumbotron a{
+
+            font-family: 'Montserrat', sans-serif
+    }
+    .row{
+        position: relative;
+        margin-top: -40px;
+    }
+    .jumbotron-special{
+        background-color: #f7f7f7;
+        height: auto;
+    }
+    .jumbotron-special p{
+        color: #505050;
+        font-size:15px;
+    }
+
+    .jumbdown{
+        margin-top:12px;
+    }
+
+
+
+
+
+
+    </style>
+{% endblock %}
+
+</head>
+<body>
+<h1>Welcome to the site</h1>
+
+{% block jumbotron %}
+<div class="jumbotron">
+ <div class="container">
+        <div class="row jumbdown">
+        <div class="col-sm-6 col-sm-offset-3">
+        <h1>LD</h1>
+        <p>Web site designed to provided all the resources needed by teachers and students, Enjoy !</p>
+
+            {% if not user.is_authenticated %}
+                <div class="text-center">
+          <a class="btn btn-primary" href="{% url 'signup' %}" role="button">Junte-se &raquo;</a>
+                </div>
+            {% endif %}
+        </div>
+        </div>
+</div>
+    </div>
+{% endblock %}
+{% block content %}
+
+
+  <div class="jumbotron jumbotron-special">
+  <div class="container">
+						<div class="row">
+							<div class="col-md-4 column">
+								<h4>Messages</h4>
+								<p>You can post messages to the network! They'll be seen by other members.</p>
+							</div>
+							<div class="col-md-4 column">
+								<h4>Communities</h4>
+								<p>Communities are where people with similar interests can have conversations. They're like Twitter's hashtags but different! They're also kind of like sub-Reddits but, hopefully, without the horribleness. Wait, we don't want Twitter's horribleness either. Oh no! We're doomed!</p>
+							</div>
+							<div class="col-md-4 column">
+								<h4>You</h4>
+								<p>We'll never be able to make a profit on this site unless you give us information we can collect and sell! Do your part today!</p>
+							</div>
+						</div>
+                        </div>
+    </div>
+
+
+
+  {% endblock %}
+
+</body>
+</html>
